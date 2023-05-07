@@ -1,5 +1,5 @@
 ![42 Málaga](https://www.42network.org/wp-content/uploads/2021/04/42-Malaga-420x140.png)
-# 42 Finish Projects ! || UPDATE IN PROGRESS || 07/05/2023
+# 42 Finish Projects !
 
 Este repositorio no es oficial, y no me responsabilizo de un mal uso sobre él.
 Cada código es diferente de una persona a otra, y este está desarrollado por mí.
