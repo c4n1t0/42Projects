@@ -95,5 +95,7 @@ Te invito a leer mi código, comprenderlo e inspirarte en él, pero nunca a copi
         Subtype polymorphism, abstract classes, interfaces
         
         
- 
+# _Skills_
+
+![My Skills](https://skillicons.dev/icons?i=c,cpp,bash,git,github,vscode,linux,php,raspberrypi,arduino)
 
