@@ -1,0 +1,124 @@
+### Putadas de Corrección Minishell-42 ###
+
+# Redireciones: #
+
+echo Hola Bernardo! > "mira que chulo $USER"
+echo hola > que > tal
+echo bonjour >> test'sticked'
+echo > test > je bonjour > suis
+Echo hola> ‘que tal’ amigo
+Echo hola> que tal amigo
+> test"sticked" echo bonjour
+> test echo bonjour > je > suis
+echo >> test bonjour > je > suis
+echo bonjour > a'b'c'd'e'f'g'h'i'j'k'l'm'n'o'p'q'r's't'u'v'w'x'y'z'
+echo bonjour > a'b'c"d"e'f'g"h"i'j'k"l"m'n'o"p'q'r"s't'u"v"w"x"y'z'
+echo foo >>>>> bar
+> test
+[SETUP echo a > a] echo bonjour >> a
+echo hola2 > "srcs/a"
+echo prueba > /Users/jaromero/VisualStudio/42-minishell/test
+>
+>>
+>>>
+>>>>
+echo bonjour "> out"
+echo hola "> que tal" > bonjour
+cat <<< "hola que tal"
+cat << < bar
+
+# Variables entorno: #
+
+echo " $ " | cat -e
+echo " $_ " | cat -e    // esta está pendiente de ver si interpretamos algo o no porque $_ es una variable de entorno
+[setup unset SHLVL] echo $SHLVL     expected: 1
+
+# CMD && Status #
+
+[SETUP echo bonjour > noperm; chmod 000 noperm] cat < noperm        Expected: permiso denegado y $?= 127
+
+# Builtin / CD #
+
+Cd ..       Expected: no debe cambiar de directorio ni dar error.
+cd ..
+cd .
+cd
+siempre salen con $?=0
+OLDPWD al iniciar minishell no debe existir y generarse al cambiar de dierctorio además de actualizar PWD
+
+# Builtin / echo #
+
+echo a '' b '' c '' d | cat -e          expected: a  b  c  d$ sin ningún null por medio.
+echo lalalala                lalalalal      alalalalal  expected: lalalala lalalalal alalalalal 
+echo bonjour -n                         expected: bonjour -n$
+echo -n bonjour -n                      expected: bonjour -n
+                         echo                     bonjour             je    expected: bonjour je$
+echo '' '' ''                           expected:   $
+[EXPORTS PATH='/bin:/usr/bin'] Echo bonjour     expected: bonjour$
+[UNSET PATH] Echo bonjour               expected: minishell: Echo: command not found $?=127
+
+# Builtin / Exit #
+
+exit ' 3'                           expected: $?=3  (Exit elimina por delante los isspaces)
+exit '3 '                           expected: $?=3  (por detras solo elimina el espacio y la tabulacion)
+exit '3\r'                          expected: minishell: exit: 3\r: numeric argument required
+exit -1                             expected: $?=255
+exit -0                             expected: $?=0
+exit -2147483648                    expected: $?=0
+exit -9223372036854775808           expected: $?=0
+exit 9223372036854775808            expected: minishell: exit: 9223372036854775808: numeric argument required $?=255 mayor que esto es todo 255
+exit ++1                            expected: minishell: exit: ++1: numeric argument required
+exit 00000000000000000000000000000000000000000000001 expected: $?=1
+exit 0 1                            expected: minishell: exit: too many arguments
+
+# Builtin / Export #
+
+Export                                  Expected: declare -x PATH="/Users/jaromero/.cache/minishell_test/bin" ojo a las comillas
+export bO_nJq123o__1ju_je3234sui__a=a   Expected: La creación de la misma
+export 1=a                              Expected: minishell: export: `1=a': not a valid identifier
+export BONJOURJESUIS =a                 Expected: minishell: export: `=a': not a valid identifier
+
+# Builtin / unset #
+
+[EXPORTS A='a' B='b' C='c'] unset A B C
+[EXPORTS A='a' B='b' C='c'] unset A 'asdf ' B ' asdf asdf asd f' ' asdf ' '' 'asdf ' C
+[EXPORTS A='a' B='b' C='c'] unset A 'asdf ' B ' asdf asdf asd f' ' asdf ' '' 'asdf '
+unset 'AH|'=nop
+unset 'AH\'=nop
+
+# CMD #
+
+cat < doesntexist               Expected: minishell: doesntexist: No such file or directory
+[SETUP echo bonjour > noperm; chmod 000 noperm] cat < noperm        Expected: minishell: noperm: Permission denied
+
+
+ctrl + c echo $?
+
+bash-3.2$ export A=eof
+bash-3.2$ echo $A
+eof
+bash-3.2$ << $A cat
+> a
+> s
+> d
+> eof
+>
+> $A
+a
+s
+d
+eof
+
+bash-3.2$
+bash-3.2$ << "$A" cat
+> a
+> s
+> eof
+> $A
+a
+s
+eof
+bash-3.2$
+
+echo *ll 4* *ake*e | grep ini | wc -l En el caso de existir mas de una coincidencia devuelve 1, ya que solo aplica sobre el primero
+con ls aplicaría a todos los reerenciados.
