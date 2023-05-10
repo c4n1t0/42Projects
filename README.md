@@ -86,7 +86,7 @@ Te invito a leer mi código, comprenderlo e inspirarte en él, pero nunca a copi
         Polimorfismo ad-hoc, sobrecargas y clases
         canónico-ortodoxas en C++
 
-#### Module 03  in progress
+#### Module 03  100/100
 
         Herencia de clases
 
