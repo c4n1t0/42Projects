@@ -6,30 +6,32 @@
 #    By: jaromero <jaromero@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/01 23:59:25 by jaromero          #+#    #+#              #
-#    Updated: 2023/02/02 00:00:23 by jaromero         ###   ########.fr        #
+#    Updated: 2023/05/29 18:49:50 by jaromero         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= zombieHorde
+NAME		= zombieHorde
 
-SOURCES	=	main.cpp Zombie.cpp zombieHorde.cpp
+SOURCES		=	main.cpp Zombie.cpp zombieHorde.cpp
 
-CC		= clang++
+OBJECTS		=	$(SOURCES:.cpp=.o)
 
-CFLAGS	= -Wall -Wextra -Werror -std=c++98
+CC			= clang++
 
-all:	$(NAME)
+CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
 
-$(NAME):
+all:		$(NAME)
+
+$(NAME):	$(OBJECTS)
 			@echo "\n	      ##### Compilando CPP Module 01 ex01 #####\n";
-			$(CC) $(CFLAGS) $(SOURCES) -o $(NAME)
+			$(CC) $(CPPFLAGS) $(SOURCES) -o $(NAME)
 
 clean:
-			@rm -rf $(NAME)
+			@rm -rf $(OBJECTS)
 			@echo "\n	       ##### Objects Cleaned!! #####\n";
 
 fclean:	
-			@rm -rf $(NAME)
+			@rm -rf $(NAME) $(OBJECTS)
 			clear
 			@echo "\n	      ##### All files cleaned!! #####\n";
 			

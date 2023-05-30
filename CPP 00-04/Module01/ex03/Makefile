@@ -6,30 +6,32 @@
 #    By: jaromero <jaromero@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/06 14:02:44 by jaromero          #+#    #+#              #
-#    Updated: 2023/02/07 01:20:42 by jaromero         ###   ########.fr        #
+#    Updated: 2023/05/29 18:51:02 by jaromero         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= Attack
+NAME		= Attack
 
-SOURCES	=	main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
+SOURCES		=	main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
 
-CC		= clang++
+OBJECTS		=	$(SOURCES:.cpp=.o)
 
-CFLAGS	= -Wall -Wextra -Werror -std=c++98
+CC			= clang++
 
-all:	$(NAME)
+CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
 
-$(NAME):
+all:		$(NAME)
+
+$(NAME):	$(OBJECTS)
 			@echo "\n	      ##### Compilando CPP Module 01 ex03 #####\n";
-			$(CC) $(CFLAGS) $(SOURCES) -o $(NAME)
+			$(CC) $(CPPFLAGS) $(SOURCES) -o $(NAME)
 
 clean:
-			@rm -rf $(NAME)
+			@rm -rf $(OBJECTS)
 			@echo "\n	       ##### Objects Cleaned!! #####\n";
 
 fclean:	
-			@rm -rf $(NAME)
+			@rm -rf $(NAME) $(OBJECTS)
 			clear
 			@echo "\n	      ##### All files cleaned!! #####\n";
 			

@@ -68,7 +68,7 @@ Te invito a leer mi código, comprenderlo e inspirarte en él, pero nunca a copi
     una vista dinámica dentro de un laberinto, en el que tendrás que abrirte paso.
 [Juega al autentico Wolfenstein](http://users.atw.hu/wolf3d/)
            
-##  _12 -   CPP_Modules 00 al 04 (In progress)_
+##  _12 -   CPP_Modules 00 al 04 100/100_
 
 #### Module 00  100/100
     
@@ -90,9 +90,15 @@ Te invito a leer mi código, comprenderlo e inspirarte en él, pero nunca a copi
 
         Herencia de clases
 
-#### Module 04  in progress
+#### Module 04  100/100
 
         Subtype polymorphism, abstract classes, interfaces
+
+##  _13 -   CPP_Modules 05 al 09 (In Progress)_
+
+#### Module 00  (In Progress)
+
+        Repetition and Exceptions
         
         
 # _Skills_

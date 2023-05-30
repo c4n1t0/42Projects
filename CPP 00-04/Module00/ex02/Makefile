@@ -3,33 +3,35 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jaromero <jaromero@student.42.fr>          +#+  +:+       +#+         #
+#    By: jaromero <jaromero@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/22 01:38:03 by jaromero          #+#    #+#              #
-#    Updated: 2023/01/28 00:24:28 by jaromero         ###   ########.fr        #
+#    Updated: 2023/05/29 19:00:19 by jaromero         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= Account
+NAME		= Account
 
-SOURCES	=	tests.cpp Account.cpp
+SOURCES		=	tests.cpp Account.cpp
 
-CC		= clang++
+OBJECTS		=	$(SOURCES:.cpp=.o)
 
-CFLAGS	= -Wall -Wextra -Werror -std=c++98
+CC			= clang++
 
-all:	$(NAME)
+CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
 
-$(NAME):
+all:		$(NAME)
+
+$(NAME):	$(OBJECTS)
 			@echo "\n	      ##### Compilando CPP Module 00 ex02 #####\n";
-			$(CC) $(CFLAGS) $(SOURCES) -o $(NAME)
+			$(CC) $(CPPFLAGS) $(SOURCES) -o $(NAME)
 
 clean:
-			@rm -rf $(NAME)
+			@rm -rf $(OBJECTS)
 			@echo "\n	       ##### Objects Cleaned!! #####\n";
 
 fclean:	
-			@rm -rf $(NAME)
+			@rm -rf $(NAME) $(OBJECTS)
 			clear
 			@echo "\n	      ##### All files cleaned!! #####\n";
 			

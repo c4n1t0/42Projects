@@ -6,11 +6,12 @@
 /*   By: jaromero <jaromero@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 00:44:06 by jaromero          #+#    #+#             */
-/*   Updated: 2023/05/02 17:33:07 by jaromero         ###   ########.fr       */
+/*   Updated: 2023/05/29 18:25:59 by jaromero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+#include "ClapTrap.hpp"
 #include <iostream>
 
 int	main(void)

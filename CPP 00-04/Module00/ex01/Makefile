@@ -3,33 +3,35 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jaromero <jaromero@student.42.fr>          +#+  +:+       +#+         #
+#    By: jaromero <jaromero@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/12 18:07:56 by jaromero          #+#    #+#              #
-#    Updated: 2023/01/22 01:14:04 by jaromero         ###   ########.fr        #
+#    Updated: 2023/05/30 17:57:51 by jaromero         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= phoneBook
+NAME	= phoneBooK
 
-SOURCES	=	MainPhoneBook.cpp ClassContact.cpp ClassPhonebook.cpp
+SOURCES	=	MainPhoneBook.cpp ClassContact.cpp ClassPhoneBook.cpp
+
+OBJECTS		=	$(SOURCES:.cpp=.o)
 
 CC		= clang++
 
-CFLAGS	= -Wall -Wextra -Werror -std=c++98
+CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 all:	$(NAME)
 
-$(NAME):
+$(NAME):	$(OBJECTS)
 			@echo "\n	      ##### Compilando CPP Module 00 ex01 #####\n";
-			$(CC) $(CFLAGS) $(SOURCES) -o $(NAME)
+			$(CC) $(CPPFLAGS) $(SOURCES) -o $(NAME)
 
 clean:
-			@rm -rf $(NAME)
+			@rm -rf $(OBJECTS)
 			@echo "\n	       ##### Objects Cleaned!! #####\n";
 
 fclean:	
-			@rm -rf $(NAME)
+			@rm -rf $(NAME) $(OBJECTS)
 			clear
 			@echo "\n	      ##### All files cleaned!! #####\n";
 			
