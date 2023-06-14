@@ -96,9 +96,13 @@ Te invito a leer mi código, comprenderlo e inspirarte en él, pero nunca a copi
 
 ##  _13 -   CPP_Modules 05 al 09 (In Progress)_
 
-#### Module 00  (In Progress)
+#### Module 05  100/100
 
         Repetition and Exceptions
+
+#### Module 06  (In Progress...)
+
+        C++ Casts
         
         
 # _Skills_

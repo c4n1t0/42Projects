@@ -5,25 +5,25 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jaromero <jaromero@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/02/06 12:58:30 by jaromero          #+#    #+#              #
-#    Updated: 2023/06/14 23:22:35 by jaromero         ###   ########.fr        #
+#    Created: 2023/05/04 01:43:09 by jaromero          #+#    #+#              #
+#    Updated: 2023/06/14 23:11:03 by jaromero         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= HiThisIsABrain
+NAME	= Bureaucrat
 
-SOURCES		=	main.cpp
+SOURCES	=	main.cpp Bureaucrat.cpp
 
-OBJECTS		=	$(SOURCES:.cpp=.o)
+OBJECTS	=	$(SOURCES:.cpp=.o)
 
-CC			= clang++
+CC		= clang++
 
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
 
-all:		$(NAME)
+all:	$(NAME)
 
 $(NAME):	$(OBJECTS)
-			@echo "\n	      ##### Compilando CPP Module 01 ex02 #####\n";
+			@echo "\n	      ##### Compilando CPP Module 05 ex00 #####\n";
 			$(CC) $(CPPFLAGS) $(OBJECTS) -o $(NAME)
 
 clean:

@@ -6,7 +6,7 @@
 #    By: jaromero <jaromero@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/02 17:39:41 by jaromero          #+#    #+#              #
-#    Updated: 2023/05/29 18:40:55 by jaromero         ###   ########.fr        #
+#    Updated: 2023/06/14 23:21:20 by jaromero         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ all:		$(NAME)
 
 $(NAME):	$(OBJECTS)
 			@echo "\n	      ##### Compilando CPP Module 03 ex02 #####\n";
-			$(CC) $(CPPFLAGS) $(SOURCES) -o $(NAME)
+			$(CC) $(CPPFLAGS) $(OBJECTS) -o $(NAME)
 
 clean:
 			@rm -rf $(OBJECTS)
