@@ -100,10 +100,17 @@ Te invito a leer mi código, comprenderlo e inspirarte en él, pero nunca a copi
 
         Repetition and Exceptions
 
-#### Module 06  (In Progress...)
+#### Module 06  100/100
 
         C++ Casts
-        
+
+#### Module 07  100/100
+
+        C++ Templates
+
+#### Module 08  (In Progress)
+
+        C++ Templated containers, iterators, algorithms
         
 # _Skills_
 
